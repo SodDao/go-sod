@@ -61,9 +61,9 @@ func NewPublicEthereumAPI(b Backend) *PublicEthereumAPI {
 
 // GasPrice returns a suggestion for a gas price.
 func (s *PublicEthereumAPI) GasPrice(ctx context.Context) (*hexutil.Big, error) {
-	// price, err := s.b.SuggestPrice(ctx)
-	// return (*hexutil.Big)(price), err
-	return (*hexutil.Big)(big.NewInt(0)), nil
+	price, err := s.b.SuggestPrice(ctx)
+	return (*hexutil.Big)(price), err
+	// return (*hexutil.Big)(big.NewInt(0)), nil
 }
 
 // Syncing returns false in case the node is currently not syncing with the network. It can be up to date or has not
